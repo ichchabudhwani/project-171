@@ -1,0 +1,11 @@
+Model Information:
+* title:	toy car 2
+* source:	https://sketchfab.com/3d-models/toy-car-2-eafa89451a9b4f8a84cf9cd486111695
+* author:	IvanPetrov (https://sketchfab.com/IvanPetrov)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "toy car 2" (https://sketchfab.com/3d-models/toy-car-2-eafa89451a9b4f8a84cf9cd486111695) by IvanPetrov (https://sketchfab.com/IvanPetrov) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
