@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>AR TOY STORE</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+  <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyB5Gd8GM9w5u_BywU1IazaiggHm2SjOC14",
+      authDomain: "ar-toy-store-76e61.firebaseapp.com",
+      databaseURL: "https://ar-toy-store-76e61-default-rtdb.firebaseio.com",
+      projectId: "ar-toy-store-76e61",
+      storageBucket: "ar-toy-store-76e61.appspot.com",
+      messagingSenderId: "845330876656",
+      appId: "1:845330876656:web:b322f2325e333bfe2d5a35"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  </script>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+ 
+  <!-- Local StyleSheet -->
+  <link href="./style.css" rel="stylesheet" />
+
+  <!--JS Files-->
+  <script src="./js/addButtons.js"></script>
+  <script src="./js/markerHandler.js"></script>
+  <script src="./js/addMarker.js"></script>
+
+</head>
+<body style="margin : 0px; overflow: hidden;">
+
+    <a-scene vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; 
+      sourceWidth:1280; sourceHeight:960; 
+      displayWidth: 1280; displayHeight: 960; 
+      debugUIEnabled: false;" gesture-detector create-buttons>
+   
+      <!-- Camera -->
+      <a-entity camera></a-entity>
+
+      <a-assets>
+      <a-asset-item id="cycle-model" src="./assets/blocks/scene.gltf"></a-asset-item>
+      </a-assets>
+      <a-assets>
+      <a-asset-item id="car-model" src="./assets/car/scene.gltf"></a-asset-item>
+      </a-assets>
+      <a-assets>
+      <a-asset-item id="crane-model" src="./assets/crane/scene.gltf"></a-asset-item>
+      </a-assets>
+      <a-assets>
+      <a-asset-item id="ball-model" src="./assets/ball/scene.gltf"></a-asset-item>
+      </a-assets>
+      <a-assets>
+      <a-asset-item id="bicycle-model" src="./assets/bicycle/scene.gltf"></a-asset-item>
+      </a-assets>
+      <a-assets>
+      <a-asset-item id="teddy-model" src="./assets/teddy/scene.gltf"></a-asset-item>
+      </a-assets>
+   
+      <a-marker id="toy1" type="pattern" url="assets/toy1/pattern-crane.patt" cursor="rayOrigin: mouse">
+        <a-entity id="crane-3D-model" position="-1 0 0" scale="0.05 0.05 0.05" 
+        gltf-model="#crane-model"
+        gesture-handler>
+        </a-entity> 
+        <a-plane position="0 0 0" width="10" height="1.5" rotation="-90 0 0">
+          <a-plane position="0 0.89 0.02" width="1" height="0.3" rotation="0 0 0" color="#F0C30F">
+            <a-entity position="0 0 0.1" rotation="0 0 0"
+              text="font:monoid;value:HYDRAULIC CRANE;color:black;width: 1.8;height:1;align:center;"></a-entity>
+          </a-plane>
+  
+          <a-entity position="0 0 0.1" rotation="0 0 0"
+            text="color: black; align: center; width: 2; font: monoid;
+                 value:The hydraulic crane depends on three 
+                 separate parts when lifting incredibly heavy loads: 
+                 the hydraulic cylinder, the pulley and the lever.
+                  The latter is a horizontal beam that takes
+                   on the task of the fulcrum. When a heavy object is
+                    loaded, an amount of force is applied at the other end
+                    , and in the other direction. 
+                   
+                   Age: 8-10 years">
+          </a-entity>
+        </a-plane>
+
+    
+      </a-marker>
+
+      <a-marker id="toy2" type="pattern" url="assets/toy2/pattern-ball.patt" cursor="rayOrigin: mouse">
+        <a-entity id="ball-3D-model" position="-1 0 0" scale="0.05 0.05 0.05" 
+        gltf-model="#ball-model"
+        gesture-handler>
+       </a-entity>
+       <a-plane position="0 0 0" width="10" height="1.5" rotation="-90 0 0">
+        <a-plane position="0 0.89 0.02" width="1" height="0.3" rotation="0 0 0" color="#F0C30F">
+          <a-entity position="0 0 0.1" rotation="0 0 0"
+            text="font:monoid;value: BALL;color:black;width: 1.8;height:1;align:center;"></a-entity>
+        </a-plane>
+
+        <a-entity position="0 0 0.1" rotation="0 0 0"
+          text="color: black; align: center; width: 2; font: monoid;
+               value:A ball is a round object (usually spherical,
+                but can sometimes be ovoid) with several uses.
+                 It is used in ball games, where the play of
+                  the game follows the state of the ball as it is 
+                  hit, kicked or thrown by players. Balls can also 
+                  be used for simpler activities,
+                   such as catch or juggling.
+                 
+                 Age:  for all">
+        </a-entity>
+      </a-plane>
+      </a-marker>
+      <a-marker id="toy3" type="pattern" url="assets/toy3/pattern-blocks.patt" cursor="rayOrigin: mouse">
+        <a-entity id="blocks-3D-model" position="-1 0 0" scale="0.05 0.05 0.05" 
+        gltf-model="#blocks-model"
+        gesture-handler>
+        </a-entity>
+        <a-plane position="0 0 0" width="4" height="1.5" rotation="-90 0 0">
+          <a-plane position="0 0.89 0.02" width="1" height="0.3" rotation="0 0 0" color="#F0C30F">
+            <a-entity position="0 0 0.1" rotation="0 0 0"
+              text="font:monoid;value: BLOCKS;color:black;width: 1.8;height:1;align:center;"></a-entity>
+          </a-plane>
+  
+          <a-entity position="0 0 0.1" rotation="0 0 0"
+            text="Toy blocks (also building bricks, building blocks,
+             or simply blocks) are wooden, plastic, or foam pieces 
+             of various shapes (cube, cylinder, arch etc.) and colors
+              that are used as construction toys. Sometimes, toy 
+              blocks depict letters of the alphabet.
+
+                   
+                   Age:  1-5 years">
+          </a-entity>
+        </a-plane>
+
+      </a-marker>
+      <a-marker id="toy4" type="pattern" url="assets/toy4/pattern-teddy.patt" cursor="rayOrigin: mouse">
+          <a-entity id="teddy-3D-model" position="-1 0 0" scale="0.5 0.5 0.5" 
+      gltf-model="#teddy-model"
+      gesture-handler>
+      </a-entity>
+      <a-plane position="0 0 0" width="1.5" height="1.5" rotation="-90 0 0">
+        <a-plane position="0 0.89 0.02" width="1.49" height="0.3" rotation="0 0 0" color="#F0C30F">
+          <a-entity position="0 0 0.1" rotation="0 0 0"
+            text="font:monoid;value:TEDDY BEAR;color:black;width: 1.8;height:1;align:center;"></a-entity>
+        </a-plane>
+
+        <a-entity position="0 0 0.1" rotation="0 0 0"
+          text="color: black; align: center; width: 2; font: monoid;
+               value:A teddy bear is a stuffed toy 
+               that's a small,
+                adorable version of 
+                an intimidating,
+                furry mammal.He was such a big teddy bear. 
+                Then she stuffed a teddy bear up under 
+                my arm and covered me back up.
+                 He is your classic teddy bear. 
+                 
+                 Age: for all">
+        </a-entity>
+      </a-plane>
+      </a-marker>
+      <a-marker id="toy5" type="pattern" url="assets/toy5/pattern-car.patt" cursor="rayOrigin: mouse">
+        <a-entity id="car-3D-model" position="-1 0 0" scale="0.05 0.05 0.05" 
+        gltf-model="#car-model"
+       gesture-handler>
+     </a-entity>
+     <a-plane position="0 0 0" width="10" height="1.5" rotation="-90 0 0">
+      <a-plane position="0 0.89 0.02" width="1" height="0.3" rotation="0 0 0" color="#F0C30F">
+        <a-entity position="0 0 0.1" rotation="0 0 0"
+          text="font:monoid;value: CAR;color:black;width: 1.8;height:1;align:center;"></a-entity>
+      </a-plane>
+
+      <a-entity position="0 0 0.1" rotation="0 0 0"
+        text="
+        A model car, or toy car, is a miniature
+         representation of an automobile. Other
+          miniature motor vehicles, such as trucks
+          , buses, or even ATVs, etc. are often 
+          included in this general category.
+
+
+               
+               Age:  1-10 years">
+      </a-entity>
+    </a-plane>
+      </a-marker>
+      <a-marker id="toy6" type="pattern" url="assets/toy6/pattern-cycle.patt" cursor="rayOrigin: mouse">
+        <a-entity id="cycle-3d-model" position="-1 0 0" scale="0.05 0.05 0.05" 
+        gltf-model="#bicycle-model"
+        gesture-handler>
+      </a-entity>
+      <a-plane position="0 0 0" width="10" height="1.5" rotation="-90 0 0">
+        <a-plane position="0 0.89 0.02" width="1" height="0.3" rotation="0 0 0" color="#F0C30F">
+          <a-entity position="0 0 0.1" rotation="0 0 0"
+            text="font:monoid;value: CYCLE;color:black;width: 1.8;height:1;align:center;"></a-entity>
+        </a-plane>
+  
+        <a-entity position="0 0 0.1" rotation="0 0 0"
+          text="
+          A bicycle is a useful vehicle that 
+          helps us reach a destination without
+           polluting the environment. It is 
+           composed of steel and has two wheels.
+            In addition, it has got a seat 
+            and handle with two pedals and 
+            also a bell. Some bicycles have 
+            a carrier while some don't.
+
+  
+  
+                 
+                 Age: for all">
+        </a-entity>
+      </a-plane>
+      </a-marker>
+      
+     
+     
+   
+      
+      
+      
+
+  </a-scene>
+   <div id="button-div"></div>
+
+</body>
+</html>
